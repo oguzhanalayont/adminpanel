@@ -1,15 +1,9 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
     <h1>Users</h1>
-    <a href="{{ route('admin.users.create') }}" class="btn btn-primary mb-3">Add New User</a>
-    
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
+    <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Create User</a>
     <table class="table">
         <thead>
             <tr>
@@ -20,21 +14,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($users as $user)
-                <tr>
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>
-                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                        <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display: inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                        </form>
-                    </td>
-                </tr>
+            @foreach ($users as $user)
+            <tr>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>
+                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
             @endforeach
         </tbody>
     </table>
+</div>
 @endsection
