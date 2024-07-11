@@ -3,6 +3,13 @@
 @section('content')
     <h1>Users</h1>
     <a href="{{ route('admin.users.create') }}" class="btn btn-primary mb-3">Add New User</a>
+    
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <table class="table">
         <thead>
             <tr>
@@ -23,7 +30,7 @@
                         <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                         </form>
                     </td>
                 </tr>
