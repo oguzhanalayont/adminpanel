@@ -17,7 +17,7 @@
                     <p>{{ __('You are logged in!') }}</p>
 
                     <div class="mt-3">
-                        <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">{{ __('Go to Admin Dashboard') }}</a>
+                        <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">{{ __('Go to Admin Dashboard') }}</a>
                     </div>
                 </div>
             </div>
