@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .transparent-bar {
+            background-color: rgba(255, 255, 255, 0.5); /* Beyaz arka plan, %50 saydamlık */
+            padding: 10px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Navbar'ın üstünde yer alması için */
+        }
+        
+        .content-wrapper {
+            margin-top: 60px; /* Üst barın yüksekliği kadar boşluk bırak */
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="transparent-bar">
+        Admin Panel App
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light content-wrapper">
         <a class="navbar-brand" href="#">Admin Panel</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

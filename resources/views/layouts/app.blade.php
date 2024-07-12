@@ -15,9 +15,30 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+        .transparent-bar {
+            background-color: rgba(255, 255, 255, 0.5); /* Beyaz arka plan, %50 saydamlık */
+            padding: 10px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Navbar'ın üstünde yer alması için */
+        }
+        
+        .content-wrapper {
+            margin-top: 60px; /* Üst barın yüksekliği kadar boşluk bırak */
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
+    <div class="transparent-bar">
+        Admin Panel App
+    </div>
+    <div id="app" class="content-wrapper">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
